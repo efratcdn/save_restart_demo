@@ -1,0 +1,47 @@
+Title : save restart demo
+Version : 1.0
+Requires : Specman {17.04..}
+Modified : July 2018
+Description :
+
+[ More e code examples in https://github.com/efratcdn/spmn-e-utils ]
+
+
+This is a small example, demonstrating the sytax of Save, Restart and
+Dynamic Load.
+
+
+The environment contains:
+
+   dut.v    : very small and dummy DUT
+   top.e    : very small testbench
+                
+   test_1.e : can be dynamic loaded on top of save snapshot
+   test_2.e : can be dynamic loaded on top of save snapshot
+
+
+
+The top.e file call simulator_save(), if SAVE_THE_RUN is defined.
+
+Flow:
+
+   1) "normal" run
+
+       xrun  dut.v top.e -l normal.log  -exit
+
+   2) run and save 
+
+       xrun -defineall SAVE_THE_RUN  dut.v top.e -l saving.log  -exit
+
+   3) restart the save snapshot
+
+       xrun -r after_reset  -l restarted.log -exit
+
+   4) restart the save snapshot, dynamic loading various tests
+
+       xrun -r after_reset -sndynload test_1.e -l test_1.log -exit
+       xrun -r after_reset -sndynload test_2.e -l test_2.log -exit
+
+
+
+
