@@ -1,9 +1,9 @@
 # save_restart_demo
-Title : save restart demo
-Version : 1.0
-Requires : Specman {17.04..}
-Modified : July 2018
-Description :
+* Title : save restart demo
+* Version : 1.0
+* Requires : Specman {17.04..}
+* Modified : July 2018
+* Description :
 
 [ More e code examples in https://github.com/efratcdn/spmn-e-utils ]
 
